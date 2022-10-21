@@ -104,8 +104,8 @@ export class WatchvideoComponent implements OnInit {
       localStorage.setItem('Uname', this.nameForm.value.name)
       this.videoPart = true;
       this.intro = false;
-      this.videoUrl = 'https://pankajphour-locationadmin.netlify.app/assets/Thor.mp4'
-      // this.videoUrl = '/assets/Thor.mp4'
+      // this.videoUrl = 'https://pankajphour-locationadmin.netlify.app/assets/Thor.mp4'
+      this.videoUrl = '/assets/Thor.mp4'
       setTimeout(()=>{
         const video = this.video.nativeElement;
         video.style.backgroundColor = 'white';

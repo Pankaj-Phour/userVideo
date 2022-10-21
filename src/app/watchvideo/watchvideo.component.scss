@@ -1,0 +1,225 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    // background: linear-gradient(30.38deg,#4a1885 7.24%,#d026f9 52.33%,#ff001b 92.01%);
+    background: linear-gradient(180deg, #107C83 0%, rgba(61, 80, 223, 0.6) 100%);
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    max-width: 100%;
+    width: 99.5%;
+    max-height: 100%;
+    height: 99%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container .top{
+    // max-width: 100%;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
+.video{
+    height: auto;
+    width: 200px;
+    
+    background-color: white;
+    position: absolute;
+    // transform: translate(-50%,-50%);
+    bottom: 0%;
+    right:0%;
+}
+.videoPlay{
+    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    // object-fit: cover;
+}
+.videoPlay video{
+    // object-fit: cover;
+    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1000px;
+    max-height: 600px;
+    width: 90%;
+    height: 100%;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    position: relative;
+}
+.content img{
+    width: auto;
+    height: 50%;
+}
+.formGroup{
+    display: flex;
+    max-width: 100%;
+    width: 70%;
+    flex-direction: column;
+    align-items: center;
+    height: 15vh;
+    justify-content: space-around;
+}
+.icon img{
+    height: 50px !important;
+    width: 50px !important;
+
+}
+.formGroup form{
+    display: flex;
+    max-width: 100%;
+    width: 70%;
+    flex-direction: column;
+    align-items: center;
+    height: 15vh;
+    justify-content: space-around;
+    position: relative;
+}
+.error{
+    position: absolute;
+    color: red;
+    font-size: 14px;
+    left: 15%;
+    bottom: -11%;
+}
+.formGroup input{
+max-width: 100%;
+width: 70%;
+padding: 10px;
+border-radius: 6px;
+border: none;
+// background-color: rgb(206 206 206);
+background: rgba(31, 30, 30, 0.14);
+}
+.formGroup input:focus-visible{
+    outline: none;
+}
+.intro-text{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    height: 26vh;
+}
+.bottom{
+    display: flex;
+    max-width: 100%;
+    width: 80%;
+    justify-content: flex-end;
+}
+.bottom .next{
+    width: 100px;
+    padding: 10px;
+    background: linear-gradient(180deg, #6321CE 0%, rgba(102, 24, 199, 0.718908) 53.04%, rgba(104, 16, 192, 0.47) 100%);
+    border: 2px solid white;
+    border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+.bottom .next:hover{
+    background: white;
+    color: rebeccapurple;
+    border: 2px solid rebeccapurple;
+}
+.text{
+    color: black;
+    font-family: 'Circular Std';
+    font-style: normal;
+    font-weight: 450;
+}
+.icon{
+    z-index: 87578;
+    color: white;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    height: auto;
+    width: auto;
+    font-size: 100px;
+    cursor: pointer;
+}
+.userVideo{
+    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+}
+.btnP{
+    width: 200px;
+    padding: 10px;
+    background: linear-gradient(180deg, #6321CE 0%, rgba(102, 24, 199, 0.718908) 53.04%, rgba(104, 16, 192, 0.47) 100%);
+    border: 2px solid white;
+    border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+// This is the CSS for camera Permission Pop up component 
+.cameraBody{
+    max-width: 500px;
+    max-height: 400px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.cameraHeading{
+    max-width: 100%;
+    max-height: 100%;
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.cameraHeading .text{
+    font-size: 19px;
+}
+.button-group{
+    display: flex;
+    max-width: 100%;
+    width: 85%;
+    justify-content: space-around;
+    align-items: center;
+}
+.button-group .buttons{
+    width: 100px;
+    padding: 10px;
+    background: linear-gradient(180deg, #6321CE 0%, rgba(102, 24, 199, 0.718908) 53.04%, rgba(104, 16, 192, 0.47) 100%);
+    border: 2px solid white;
+    border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+.button-group .buttons:hover{
+    background: white;
+    color: rebeccapurple;
+    border: 2px solid rebeccapurple;
+}
+::ng-deep .mat-dialog-container{
+    width: 500px !important;
+    height: 220px !important;
+}

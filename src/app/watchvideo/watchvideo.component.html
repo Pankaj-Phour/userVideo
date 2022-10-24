@@ -1,0 +1,55 @@
+<div class="body">
+    <div class="container" *ngIf="!videoPart && intro">
+        <div class="top">
+            <img src="assets/images/monetIcon.png">
+        </div>
+        <div class="content">
+            <div class="formGroup">
+                <form [formGroup]="nameForm">
+                <label for="name">Enter your name</label>
+                <input type="text" formControlName="name">
+                <p class="error" *ngIf="nameForm.get('name').hasError('required') && (submit)">Please enter your name</p>
+            </form>
+            </div>
+           <div class="intro-text">
+            <p class="text">This is a webcam based study</p>
+            <p class="text">Allow your webcam to watch this video</p>
+            <img src="assets/webcamicon1.png">
+            <!-- <video #video autoplay class="video" style="visibility:hidden;">Video is not supported by browser</video> -->
+        </div>  
+            <div class="bottom">
+            <button class="next"  (click)="next()">Next</button>
+        </div>
+        </div>
+    </div>
+        <!-- This is for video page  -->
+        <div class="container" *ngIf="videoPart">
+        <div class="top">
+            <img src="assets/images/monetIcon.png">
+        </div>
+        <div class="content" #content>
+            <div class="videoPlay">
+                <video #videoPlay crossOrigin="anonymous" (play)="start($event)" (ended)="Ended($event)" (pause)="pause($event)" (waiting)="Waiting($event)" (playing)="Playing($event)"
+                [src]="videoUrl">
+                </video>
+                 <mat-progress-bar [value]="Duration" mode="determinate"></mat-progress-bar>
+            <!-- <mat-icon class="icon" (click)="play()" *ngIf="!Play" fontIcon="play_circle_outline"></mat-icon> -->
+            <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/109/109197.png" height="30" width="30" (click)="play()" *ngIf="!Play"></div>
+            </div>
+            
+              <video #video autoplay class="video" style="visibility: hidden;">Video is not supported by browser</video>
+              <canvas id="canvasfd" hidden  height="400" width="480" #canvasfd></canvas>
+            
+        </div>
+    </div>
+    <!-- This part shows after video completion  -->
+    <div class="container" *ngIf="videoComplete">
+        <div class="top">
+            <img src="assets/images/monetIcon.png">
+        </div>
+        <div class="content">
+           <p class="text">Thank you for your Participation</p>          
+        </div>
+    </div>
+ 
+</div>

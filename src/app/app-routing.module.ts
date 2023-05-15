@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { WatchvideoComponent } from './watchvideo/watchvideo.component';
 
 const routes: Routes = [

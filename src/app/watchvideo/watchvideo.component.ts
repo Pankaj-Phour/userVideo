@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
@@ -218,25 +218,25 @@ export class WatchvideoComponent implements OnInit {
         });
         const url = window.URL.createObjectURL(videoBuffer); // you can download with <a> tag
         this.downloadUrl = this.modify(url);
-        console.log(this.downloadUrl);
+        // console.log(this.downloadUrl);
         setTimeout(()=>{
           fetch(this.downloadUrl.changingThisBreaksApplicationSecurity).then((res:any) => res.blob()).then((e:any) => {
-            console.log(e)
+            // console.log(e)
             this.file = e;
           let self = this;
           let reader = new FileReader();
           reader.onload = function(e){
-              console.log(e);
+              // console.log(e);
           }
           reader.onloadend = function(end){
-            console.log(end);
+            // console.log(end);
             self.rVideo = end.target.result
             let params = {
               name:localStorage.getItem('Uname'),
               data:end.target.result
             }
             self.api.postRecording('/postVideo',params).subscribe((e:any)=>{
-              console.log(e);
+              // console.log(e);
               
             })
             

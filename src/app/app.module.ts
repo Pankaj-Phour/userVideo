@@ -10,14 +10,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatIconModule} from '@angular/material/icon';
-import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    WatchvideoComponent,
-    LandingComponent,
+    WatchvideoComponent
   ],
   imports: [
     BrowserModule,

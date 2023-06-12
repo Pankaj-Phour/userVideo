@@ -8,7 +8,13 @@
             <div class="heading">Welcome to our project</div>
             <div class="subheading">Fill the details below to continue</div>
             <div class="or">Or</div>
-            <div class="choice">Sign in with goolge</div>
+            <div class="choice">
+                <div class="submitButton">
+                    <button [ngClass]="'active' " (click)="google.click()">
+                <asl-google-signin-button #google (click)="googleLogin()"></asl-google-signin-button>
+                Sign In with google</button>
+            </div>
+            </div>
         </div>
             <div class="formGroup">
                 <form [formGroup]="nameForm">

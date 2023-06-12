@@ -5,6 +5,7 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { ApiService } from '../api.service';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 
 let mediaStream;
 @Component({
@@ -23,7 +24,8 @@ export class WatchvideoComponent implements OnInit {
     private api: ApiService,
     private sanitizer: DomSanitizer,
     private snackbar: MatSnackBar,
-    private dialogRef: MatDialog
+    private dialogRef: MatDialog,
+    private authService : SocialAuthService
   ) { }
   ngOnDestroy(): void {
     throw new Error('Method not implemented.');
@@ -61,7 +63,19 @@ export class WatchvideoComponent implements OnInit {
 
 
 
+  googleLogin(){
+    console.log("Hello from login function ");
+    this.authService.authState.subscribe((user) => {
+      // this.user = user;
+      // this.loggedIn = (user != null);
+      console.log("Checking data of the user",user);
+      localStorage.setItem('logged_in','true')
+      // this.router.navigate(['/dashboard']);
+    });
+  }
+
   ngOnInit(): void {
+    this.googleLogin();
     // ****************************************** Used this method in place of URLSearchParams because URLSearchParams doesn't work properly with Hash Routing *************************************************************
     
     this.openCamera();

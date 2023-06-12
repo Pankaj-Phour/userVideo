@@ -4,22 +4,37 @@
             <img src="assets/images/monetIcon.png">
         </div>
         <div class="content">
+            <div class="topmessage">
+            <div class="heading">Welcome to our project</div>
+            <div class="subheading">Fill the details below to continue</div>
+            <div class="or">Or</div>
+            <div class="choice">Sign in with goolge</div>
+        </div>
             <div class="formGroup">
                 <form [formGroup]="nameForm">
-                <label for="name">Enter your name</label>
-                <input type="text" formControlName="name">
-                <p class="error" *ngIf="nameForm.get('name').hasError('required') && (submit)">Please enter your name</p>
+                    <div class="innerformGroup">
+                        <label for="name">Name : </label>
+                        <input type="text" placeholder="Enter your name" formControlName="name">
+                        <p class="error" *ngIf="nameForm.get('name').hasError('required') && (submit)">* Name is required.</p>
+                    </div>
+                    <div class="innerformGroup">
+                        <label for="name">Email id : </label>
+                        <input type="email" placeholder="Enter your email" formControlName="email">
+                        <p class="error" *ngIf="nameForm.get('email').hasError('required') && (submit)">* Email is required.</p>
+                        <p class="error" *ngIf="nameForm.get('email').hasError('email') && (submit)">* Please enter a valid email.</p>
+                    </div>
+                    
+                        <div class="submitButton">
+                            <button [ngClass]="nameForm.invalid ? 'disable' : 'active' " (click)="next()">Next</button>
+                    </div>
             </form>
             </div>
-           <div class="intro-text">
+           <!-- <div class="intro-text">
             <p class="text">This is a webcam based study</p>
             <p class="text">Allow your webcam to watch this video</p>
             <img src="assets/webcamicon1.png">
-            <!-- <video #video autoplay class="video" style="visibility:hidden;">Video is not supported by browser</video> -->
-        </div>
-            <div class="bottom">
-            <button class="next"  (click)="next()">Next</button>
-        </div>
+        </div> -->
+
         </div>
     </div>
         <!-- This is for video page  -->

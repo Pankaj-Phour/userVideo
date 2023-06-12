@@ -79,7 +79,8 @@ export class WatchvideoComponent implements OnInit {
   //********************************************** Name field validation function *************************************************************
   nameValidation() {
     this.nameForm = this.fb.group({
-      name: new FormControl('', Validators.required)
+      name: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.compose([Validators.required,Validators.email])),
     })
   }
 
@@ -89,7 +90,7 @@ export class WatchvideoComponent implements OnInit {
       this.submit = true;
       setTimeout(() => {
         this.submit = false;
-      }, 2000);
+      }, 3000);
       if (this.stream === undefined) {
         this.dialogRef.open(CameraPermission, {
           data: {

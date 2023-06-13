@@ -70,6 +70,12 @@ export class WatchvideoComponent implements OnInit {
       // this.loggedIn = (user != null);
       console.log("Checking data of the user",user);
       localStorage.setItem('logged_in','true')
+      this.nameForm.get('name').setValue(user.name);
+      this.nameForm.get('email').setValue(user.email);
+      console.log(this.nameForm);
+      this.next();
+      
+
       // this.router.navigate(['/dashboard']);
     });
   }

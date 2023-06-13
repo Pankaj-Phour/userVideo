@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -24,6 +24,9 @@ export class ApiService {
     return this.http.post(environment.pankaj + endpoint,params)
   }
 
-  public allow = new BehaviorSubject<any>('');
-  allow$ = this.allow.asObservable()
+  @Output() allowEvent = new EventEmitter();
+  
+  allow(data:any){
+    this.allowEvent.emit(data)
+  }
 }

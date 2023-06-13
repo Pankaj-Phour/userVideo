@@ -88,7 +88,9 @@ export class WatchvideoComponent implements OnInit {
     
     
     this.nameValidation();
-    this.api.allow$.subscribe((e: any) => {
+    this.api.allowEvent.subscribe((e: any) => {
+      console.log("Hello from allowEvent");
+      
       if (e === true) {
         this.openCamera();
       }
@@ -138,11 +140,12 @@ export class WatchvideoComponent implements OnInit {
 
   //********************************************** Camera open function (hits on OnInit)*************************************************************
   openCamera() {
-    // console.log("Load");
+    console.log("Load");
     navigator.mediaDevices.getUserMedia({ video: true }).then((stream: any) => {
       mediaStream = stream;
       this.stream = stream;
     }, (error: any) => {
+      console.log(error);
       
     })
   }
@@ -299,7 +302,7 @@ export class CameraPermission implements OnInit {
     this.dialogRef.closeAll();
   }
   allow() {
-    this.api.allow.next(true);
+    this.api.allow(true);
     this.dialogRef.closeAll();
   }
 

@@ -5,6 +5,7 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { ApiService } from '../api.service';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 
 let mediaStream;
 @Component({
@@ -23,7 +24,8 @@ export class WatchvideoComponent implements OnInit {
     private api: ApiService,
     private sanitizer: DomSanitizer,
     private snackbar: MatSnackBar,
-    private dialogRef: MatDialog
+    private dialogRef: MatDialog,
+    private authService : SocialAuthService
   ) { }
   ngOnDestroy(): void {
     throw new Error('Method not implemented.');
@@ -61,14 +63,34 @@ export class WatchvideoComponent implements OnInit {
 
 
 
+  googleLogin(){
+    console.log("Hello from login function ");
+    this.authService.authState.subscribe((user) => {
+      // this.user = user;
+      // this.loggedIn = (user != null);
+      console.log("Checking data of the user",user);
+      localStorage.setItem('logged_in','true')
+      this.nameForm.get('name').setValue(user.name);
+      this.nameForm.get('email').setValue(user.email);
+      console.log(this.nameForm);
+      this.next();
+      
+
+      // this.router.navigate(['/dashboard']);
+    });
+  }
+
   ngOnInit(): void {
+    this.googleLogin();
     // ****************************************** Used this method in place of URLSearchParams because URLSearchParams doesn't work properly with Hash Routing *************************************************************
     
     this.openCamera();
     
     
     this.nameValidation();
-    this.api.allow$.subscribe((e: any) => {
+    this.api.allowEvent.subscribe((e: any) => {
+      console.log("Hello from allowEvent");
+      
       if (e === true) {
         this.openCamera();
       }
@@ -79,7 +101,8 @@ export class WatchvideoComponent implements OnInit {
   //********************************************** Name field validation function *************************************************************
   nameValidation() {
     this.nameForm = this.fb.group({
-      name: new FormControl('', Validators.required)
+      name: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.compose([Validators.required,Validators.email])),
     })
   }
 
@@ -89,7 +112,7 @@ export class WatchvideoComponent implements OnInit {
       this.submit = true;
       setTimeout(() => {
         this.submit = false;
-      }, 2000);
+      }, 3000);
       if (this.stream === undefined) {
         this.dialogRef.open(CameraPermission, {
           data: {
@@ -117,11 +140,12 @@ export class WatchvideoComponent implements OnInit {
 
   //********************************************** Camera open function (hits on OnInit)*************************************************************
   openCamera() {
-    // console.log("Load");
+    console.log("Load");
     navigator.mediaDevices.getUserMedia({ video: true }).then((stream: any) => {
       mediaStream = stream;
       this.stream = stream;
     }, (error: any) => {
+      console.log(error);
       
     })
   }
@@ -278,7 +302,7 @@ export class CameraPermission implements OnInit {
     this.dialogRef.closeAll();
   }
   allow() {
-    this.api.allow.next(true);
+    this.api.allow(true);
     this.dialogRef.closeAll();
   }
 

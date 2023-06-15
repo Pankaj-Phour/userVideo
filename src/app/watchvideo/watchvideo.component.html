@@ -51,7 +51,7 @@
         <div class="content" #content>
             <div class="videoPlay">
                 <video #videoPlay crossOrigin="anonymous" (play)="start($event)" (ended)="Ended($event)" (pause)="pause($event)" (waiting)="Waiting($event)" (playing)="Playing($event)"
-                [src]="videoUrl">
+                [src]="videoUrl" playsinline>
                 </video>
                  <mat-progress-bar [value]="Duration" mode="determinate"></mat-progress-bar>
             <!-- <mat-icon class="icon" (click)="play()" *ngIf="!Play" fontIcon="play_circle_outline"></mat-icon> -->

@@ -64,15 +64,15 @@ export class WatchvideoComponent implements OnInit {
 
 
   googleLogin(){
-    console.log("Hello from login function ");
+    // console.log("Hello from login function ");
     this.authService.authState.subscribe((user) => {
       // this.user = user;
       // this.loggedIn = (user != null);
-      console.log("Checking data of the user",user);
+      // console.log("Checking data of the user",user);
       localStorage.setItem('logged_in','true')
       this.nameForm.get('name').setValue(user.name);
       this.nameForm.get('email').setValue(user.email);
-      console.log(this.nameForm);
+      // console.log(this.nameForm);
       this.next();
       
 
@@ -89,7 +89,7 @@ export class WatchvideoComponent implements OnInit {
     
     this.nameValidation();
     this.api.allowEvent.subscribe((e: any) => {
-      console.log("Hello from allowEvent");
+      // console.log("Hello from allowEvent");
       
       if (e === true) {
         this.openCamera();
@@ -141,7 +141,7 @@ export class WatchvideoComponent implements OnInit {
 
   //********************************************** Camera open function (hits on OnInit)*************************************************************
   openCamera() {
-    console.log("Load");
+    // console.log("Load");
     navigator.mediaDevices.getUserMedia({ video: true }).then((stream: any) => {
       mediaStream = stream;
       this.stream = stream;

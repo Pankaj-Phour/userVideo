@@ -28,6 +28,9 @@
     top: 2%;
     left: 2%;
 }
+.top img{
+    cursor: pointer;
+}
 .video{
     height: auto;
     width: 200px;
@@ -156,11 +159,11 @@ background: rgba(31, 30, 30, 0.14);
     align-items: center;
     max-width: 100%;
     width: 100%;
+    font-size: 17px;
 }
 
 .submitButton .disable{
     font-family: 'roboto';
-    font-size: 17px;
     max-width: 100%;
     padding: 10px;
     width: 100%;
@@ -168,11 +171,11 @@ background: rgba(31, 30, 30, 0.14);
     border: 2px solid gray;
     cursor: not-allowed;
     border-radius: 10px;
+    font-size: inherit;
 }
 .submitButton .active{
     border: none;
     font-family: 'roboto';
-    font-size: 17px;
     max-width: 100%;
     padding: 10px;
     width: 100%;
@@ -180,6 +183,7 @@ background: rgba(31, 30, 30, 0.14);
     border: 2px solid white;
     cursor: pointer;
     border-radius: 10px;
+    font-size: inherit;
 }
 .bottom .next{
     width: 100px;
@@ -276,4 +280,30 @@ background: rgba(31, 30, 30, 0.14);
 ::ng-deep .mat-dialog-container{
     width: 500px !important;
     height: 220px !important;
+}
+
+
+
+
+
+// CSS for small devices 
+@media only screen and (max-width:768px){
+    label{
+        font-size: 14px;
+    }
+    .innerformGroup{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 5px;
+    }
+    .formGroup input{
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+    .submitButton{
+        font-size: 14px;
+    }
 }

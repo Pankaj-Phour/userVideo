@@ -109,6 +109,7 @@
     // height: 15vh;
     justify-content: space-around;
     position: relative;
+    min-height: 200px;
 }
 .innerformGroup{
     font-family: 'roboto';
@@ -124,8 +125,9 @@
     position: absolute;
     color: red;
     font-size: 14px;
-    left: 15%;
-    bottom: -11%;
+    transform: translate(-50%,-50%);
+    left: 40%;
+    bottom: -30%;
 }
 .formGroup input{
 max-width: 100%;
@@ -305,5 +307,13 @@ background: rgba(31, 30, 30, 0.14);
     }
     .submitButton{
         font-size: 14px;
+    }
+    .innerformGroup{
+        margin-bottom: 15px;
+    }
+    .error{
+        width: 100%;
+        left: 50%;
+        bottom: -50%;
     }
 }

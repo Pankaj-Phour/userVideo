@@ -111,7 +111,7 @@ export class WatchvideoComponent implements OnInit {
     if (this.nameForm.invalid || this.stream === undefined) {
       this.submit = true;
       setTimeout(() => {
-        // this.submit = false;
+        this.submit = false;
       }, 3000);
       if (this.stream === undefined) {
         this.dialogRef.open(CameraPermission, {

@@ -11,7 +11,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatIconModule} from '@angular/material/icon';
-import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 
 
 @NgModule({
@@ -31,9 +31,6 @@ import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig,
     MatProgressBarModule,
     MatIconModule,
     SocialLoginModule,
-    GoogleSigninButtonModule
-    
-    
   ],
   providers: [
     {
@@ -44,7 +41,7 @@ import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig,
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '323821630968-n6recgjk8de95rthp0o14lg7a535uqes.apps.googleusercontent.com'
+              '510808079201-2c0vf9033f0hgibds5pmb3bhocq6krtp.apps.googleusercontent.com'
             )
           }
         ],

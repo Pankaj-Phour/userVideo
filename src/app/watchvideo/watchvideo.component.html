@@ -1,7 +1,7 @@
 <div class="body">
     <div class="container" *ngIf="!videoPart && intro">
         <div class="top">
-            <img src="assets/images/monetIcon.png">
+            <img src="assets/logo.png" height="40" width="40">
         </div>
         <div class="content">
             <div class="topmessage">
@@ -46,12 +46,12 @@
         <!-- This is for video page  -->
         <div class="container" *ngIf="videoPart">
         <div class="top">
-            <img src="assets/images/monetIcon.png">
+            <img src="assets/logo.png" height="40" width="40">
         </div>
         <div class="content" #content>
             <div class="videoPlay">
                 <video #videoPlay crossOrigin="anonymous" (play)="start($event)" (ended)="Ended($event)" (pause)="pause($event)" (waiting)="Waiting($event)" (playing)="Playing($event)"
-                [src]="videoUrl">
+                [src]="videoUrl" playsinline>
                 </video>
                  <mat-progress-bar [value]="Duration" mode="determinate"></mat-progress-bar>
             <!-- <mat-icon class="icon" (click)="play()" *ngIf="!Play" fontIcon="play_circle_outline"></mat-icon> -->
@@ -66,7 +66,7 @@
     <!-- This part shows after video completion  -->
     <div class="container" *ngIf="videoComplete">
         <div class="top">
-            <img src="assets/images/monetIcon.png">
+            <img src="assets/logo.png" height="40" width="40">
         </div>
         <div class="content">
            <p class="text">Thank you for your Participation</p>          

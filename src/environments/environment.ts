@@ -10,7 +10,12 @@ export const environment = {
   // Then i hosted the project on render's free tier 
   // And replace the heroku live url with render live url 
   // pankaj: 'https://pankajphour-locationapi.herokuapp.com'
-  pankaj: 'https://locationapi.onrender.com'
+
+  // Live api URL 
+  // pankaj: 'https://locationapi.onrender.com'
+
+  // URL for testing the local code 
+  pankaj: 'http://localhost:3000'
 
 };
 

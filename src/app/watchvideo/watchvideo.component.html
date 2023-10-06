@@ -69,6 +69,8 @@
             <img src="assets/logo.png" height="40" width="40">
         </div>
         <div class="content">
+            <video [src]="rVideo" controls height="400" width="500" playsInline *ngIf="rVideo && false"></video>
+            <video [src]="downloadUrl" controls height="400" width="500" playsInline *ngIf="downloadUrl && false"></video>
            <p class="text">Thank you for your Participation</p>          
         </div>
     </div>

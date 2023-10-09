@@ -260,8 +260,10 @@ export class WatchvideoComponent implements OnInit {
               name:localStorage.getItem('Uname'),
               data:end.target.result
             }
+            // console.log(params);
+            
             self.api.postRecording('/postVideo',params).subscribe((e:any)=>{
-              // console.log(e);
+              console.log(e);
               
             })
             
